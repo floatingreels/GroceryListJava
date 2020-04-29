@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">GroceryList</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="product_name">Product name</string>
+    <string name="product_decrement">-</string>
+    <string name="product_increment">+</string>
+    <string name="product_add">Add</string>
+    <string name="fragment_section_b">B Section</string>
+    <string name="fragment_section_a">A Section</string>
+    <string name="fragment_section_cool">Cool Section</string>
+</resources>
