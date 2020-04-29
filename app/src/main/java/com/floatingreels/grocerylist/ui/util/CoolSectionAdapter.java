@@ -14,20 +14,20 @@ import com.floatingreels.grocerylist.model.Product;
 
 import java.util.List;
 
-public class ASectionAdapter extends RecyclerView.Adapter<ASectionAdapter.ASectionHolder> {
+public class CoolSectionAdapter extends RecyclerView.Adapter<CoolSectionAdapter.CoolSectionHolder> {
 
-    private Application mApplication;
+    private Application application;
     private List<Product> items;
 
     @NonNull
     @Override
-    public ASectionHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CoolSectionHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View cardView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_product, parent, false);
-        return new ASectionHolder(cardView);
+        return new CoolSectionHolder(cardView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ASectionHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CoolSectionHolder holder, int position) {
         Product currentProduct = items.get(position);
     }
 
@@ -35,8 +35,9 @@ public class ASectionAdapter extends RecyclerView.Adapter<ASectionAdapter.ASecti
     public int getItemCount() {
         return items.size();
     }
-    class ASectionHolder extends RecyclerView.ViewHolder {
-        public ASectionHolder(@NonNull View itemView) {
+
+    class CoolSectionHolder extends RecyclerView.ViewHolder {
+        public CoolSectionHolder(@NonNull View itemView) {
             super(itemView);
             TextView nameTV = itemView.findViewById(R.id.tv_product_name);
             TextView qtyTV = itemView.findViewById(R.id.tv_product_qty);

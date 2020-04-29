@@ -1,5 +1,6 @@
 package com.floatingreels.grocerylist.ui.util;
 
+import android.app.AppOpsManager;
 import android.app.Application;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,20 +15,19 @@ import com.floatingreels.grocerylist.model.Product;
 
 import java.util.List;
 
-public class ASectionAdapter extends RecyclerView.Adapter<ASectionAdapter.ASectionHolder> {
-
-    private Application mApplication;
+public class BSectionAdapter extends RecyclerView.Adapter<BSectionAdapter.BSectionHolder> {
     private List<Product> items;
+    private Application mApplication;
 
     @NonNull
     @Override
-    public ASectionHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public BSectionHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View cardView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_product, parent, false);
-        return new ASectionHolder(cardView);
+        return new BSectionAdapter.BSectionHolder(cardView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ASectionHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BSectionHolder holder, int position) {
         Product currentProduct = items.get(position);
     }
 
@@ -35,8 +35,9 @@ public class ASectionAdapter extends RecyclerView.Adapter<ASectionAdapter.ASecti
     public int getItemCount() {
         return items.size();
     }
-    class ASectionHolder extends RecyclerView.ViewHolder {
-        public ASectionHolder(@NonNull View itemView) {
+
+    class BSectionHolder extends RecyclerView.ViewHolder {
+        public BSectionHolder(@NonNull View itemView) {
             super(itemView);
             TextView nameTV = itemView.findViewById(R.id.tv_product_name);
             TextView qtyTV = itemView.findViewById(R.id.tv_product_qty);
