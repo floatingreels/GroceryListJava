@@ -13,12 +13,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.floatingreels.grocerylist.R;
 import com.floatingreels.grocerylist.model.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CoolSectionAdapter extends RecyclerView.Adapter<CoolSectionAdapter.CoolSectionHolder> {
 
-    private Application application;
-    private List<Product> items;
+    private Application mApplication;
+    private List<Product> itemsFromSectionCool;
+
+    public CoolSectionAdapter(Application application) {
+        this.mApplication = application;
+        itemsFromSectionCool = new ArrayList<>();
+    }
 
     @NonNull
     @Override
@@ -29,13 +35,19 @@ public class CoolSectionAdapter extends RecyclerView.Adapter<CoolSectionAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull CoolSectionHolder holder, int position) {
-        Product currentProduct = items.get(position);
+        Product currentProduct = itemsFromSectionCool.get(position);
         holder.nameTV.setText(currentProduct.getName());
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return itemsFromSectionCool.size();
+    }
+
+    public void setProducts(List<Product> products) {
+        itemsFromSectionCool.clear();
+        itemsFromSectionCool.addAll(products);
+        notifyDataSetChanged();
     }
 
     class CoolSectionHolder extends RecyclerView.ViewHolder {

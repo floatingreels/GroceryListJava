@@ -12,11 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.floatingreels.grocerylist.R;
 import com.floatingreels.grocerylist.model.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BSectionAdapter extends RecyclerView.Adapter<BSectionAdapter.BSectionHolder> {
-    private List<Product> items;
+    private List<Product> itemsFromSectionB;
     private Application mApplication;
+
+    public BSectionAdapter(Application application) {
+        this.mApplication = application;
+        itemsFromSectionB = new ArrayList<>();
+    }
+
 
     @NonNull
     @Override
@@ -27,12 +34,18 @@ public class BSectionAdapter extends RecyclerView.Adapter<BSectionAdapter.BSecti
 
     @Override
     public void onBindViewHolder(@NonNull BSectionHolder holder, int position) {
-        Product currentProduct = items.get(position);
+        Product currentProduct = itemsFromSectionB.get(position);
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return itemsFromSectionB.size();
+    }
+
+    public void setProducts(List<Product> products) {
+        itemsFromSectionB.clear();
+        itemsFromSectionB.addAll(products);
+        notifyDataSetChanged();
     }
 
     class BSectionHolder extends RecyclerView.ViewHolder {

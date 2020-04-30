@@ -9,12 +9,15 @@ import java.util.List;
 
 public class ProductRepository {
     private ProductDAO productDAO;
-    private LiveData<List<Product>> allProducts;
+    private LiveData<List<Product>> allProducts, productsFromSectionA, productsFromSectionB, productsFromSectionCool;
 
     public ProductRepository (Application application){
         ProductDabase database = ProductDabase.getInstance(application);
         productDAO = database.productDAO();
         allProducts = productDAO.getAllProducts();
+        productsFromSectionA = productDAO.showProductsFromSectionA();
+        productsFromSectionB = productDAO.showProductsFromSectionB();
+        productsFromSectionCool = productDAO.showProductsFromSectionCool();
     }
 
     public void insert(Product product){
@@ -32,6 +35,19 @@ public class ProductRepository {
     public LiveData<List<Product>> getAllProducts(){
         return allProducts;
     }
+
+    public LiveData<List<Product>> showProductsFromSectionA(){
+        return productsFromSectionA;
+    }
+
+    public LiveData<List<Product>> showProductsFromSectionB(){
+        return productsFromSectionB;
+    }
+
+    public LiveData<List<Product>> showProductsFromSectionCool(){
+        return productsFromSectionCool;
+    }
+
 
     private static class InsertNoteAsyncTask extends AsyncTask<Product, Void, Void> {
 

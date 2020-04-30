@@ -18,11 +18,11 @@ import java.util.List;
 public class ASectionAdapter extends RecyclerView.Adapter<ASectionAdapter.ASectionHolder> {
 
     private Application mApplication;
-    private ArrayList<Product> items;
+    private ArrayList<Product> itemsFromSectionA;
 
     public ASectionAdapter(Application application) {
         this.mApplication = application;
-        items = new ArrayList<>();
+        itemsFromSectionA = new ArrayList<>();
     }
 
     @NonNull
@@ -34,17 +34,17 @@ public class ASectionAdapter extends RecyclerView.Adapter<ASectionAdapter.ASecti
 
     @Override
     public void onBindViewHolder(@NonNull ASectionHolder holder, int position) {
-        Product currentProduct = items.get(position);
+        Product currentProduct = itemsFromSectionA.get(position);
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return itemsFromSectionA.size();
     }
 
     public void setProducts(List<Product> products) {
-        items.clear();
-        items.addAll(items);
+        itemsFromSectionA.clear();
+        itemsFromSectionA.addAll(products);
         notifyDataSetChanged();
     }
 

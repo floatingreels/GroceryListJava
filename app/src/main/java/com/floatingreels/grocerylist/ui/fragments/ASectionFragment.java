@@ -14,9 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.floatingreels.grocerylist.ProductViewModel;
+import com.floatingreels.grocerylist.model.ProductViewModel;
 import com.floatingreels.grocerylist.R;
 import com.floatingreels.grocerylist.model.Product;
 import com.floatingreels.grocerylist.ui.util.ASectionAdapter;
@@ -55,7 +54,7 @@ public class ASectionFragment extends Fragment {
         recyclerView.setAdapter(aSectionAdapter);
 
         productViewModel = new ViewModelProvider(mContext).get(ProductViewModel.class);
-        productViewModel.getAllProducts().observe(mContext, new Observer<List<Product>>() {
+        productViewModel.showProductsFromSectionA().observe(mContext, new Observer<List<Product>>() {
             @Override
             public void onChanged(List<Product> products) {
                 aSectionAdapter.setProducts(products);

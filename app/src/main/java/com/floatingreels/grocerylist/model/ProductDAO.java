@@ -22,4 +22,13 @@ public interface ProductDAO {
 
     @Query("SELECT * FROM product_table")
     LiveData<List<Product>> getAllProducts();
+
+    @Query("SELECT * FROM product_table WHERE section = 'SECTION_A'")
+    LiveData<List<Product>> showProductsFromSectionA();
+
+    @Query("SELECT * FROM product_table WHERE section = 'SECTION_B'")
+    LiveData<List<Product>> showProductsFromSectionB();
+
+    @Query("SELECT * FROM product_table WHERE section = 'SECTION_COOL'")
+    LiveData<List<Product>> showProductsFromSectionCool();
 }

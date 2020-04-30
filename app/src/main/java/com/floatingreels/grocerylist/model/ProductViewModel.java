@@ -1,4 +1,4 @@
-package com.floatingreels.grocerylist;
+package com.floatingreels.grocerylist.model;
 
 import android.app.Application;
 
@@ -6,20 +6,21 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.floatingreels.grocerylist.model.Product;
-import com.floatingreels.grocerylist.model.ProductRepository;
 
 import java.util.List;
 
 public class ProductViewModel extends AndroidViewModel {
 
     ProductRepository repository;
-    private LiveData<List<Product>> allProducts;
+    private LiveData<List<Product>> allProducts, productsFromSectionA, productsFromSectionB, productsFromSectionCool;
 
     public ProductViewModel(@NonNull Application application) {
         super(application);
         repository = new ProductRepository(application);
         allProducts = repository.getAllProducts();
+        productsFromSectionA = repository.showProductsFromSectionA();
+        productsFromSectionB = repository.showProductsFromSectionB();
+        productsFromSectionCool = repository.showProductsFromSectionCool();
     }
 
     public void insert(Product product){
@@ -36,5 +37,16 @@ public class ProductViewModel extends AndroidViewModel {
 
     public LiveData<List<Product>> getAllProducts(){
         return allProducts;
+    }
+
+    public LiveData<List<Product>> showProductsFromSectionA(){
+        return productsFromSectionA;
+    }
+    public LiveData<List<Product>> showProductsFromSectionB(){
+        return productsFromSectionB;
+    }
+
+    public LiveData<List<Product>> showProductsFromSectionCool(){
+        return productsFromSectionCool;
     }
 }
