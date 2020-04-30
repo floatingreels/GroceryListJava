@@ -4,6 +4,7 @@ import android.app.Application;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,6 +30,7 @@ public class CoolSectionAdapter extends RecyclerView.Adapter<CoolSectionAdapter.
     @Override
     public void onBindViewHolder(@NonNull CoolSectionHolder holder, int position) {
         Product currentProduct = items.get(position);
+        holder.nameTV.setText(currentProduct.getName());
     }
 
     @Override
@@ -37,10 +39,13 @@ public class CoolSectionAdapter extends RecyclerView.Adapter<CoolSectionAdapter.
     }
 
     class CoolSectionHolder extends RecyclerView.ViewHolder {
+        private TextView nameTV, qtyTV;
+        private Button incrementBtn, decrementBtn;
+
         public CoolSectionHolder(@NonNull View itemView) {
             super(itemView);
-            TextView nameTV = itemView.findViewById(R.id.tv_product_name);
-            TextView qtyTV = itemView.findViewById(R.id.tv_product_qty);
+            TextView nameTV = itemView.findViewById(R.id.tv_card_name);
+            TextView qtyTV = itemView.findViewById(R.id.tv_card_qty);
         }
     }
 }

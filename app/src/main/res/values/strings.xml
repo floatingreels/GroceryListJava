@@ -5,8 +5,15 @@
     <string name="product_name">Product name</string>
     <string name="product_decrement">-</string>
     <string name="product_increment">+</string>
-    <string name="product_add">Add</string>
+    <string name="product_add_title">Add new product</string>
+    <string name="product_add_btn">Add</string>
     <string name="fragment_section_b">B Section</string>
     <string name="fragment_section_a">A Section</string>
     <string name="fragment_section_cool">Cool Section</string>
+    <string name="section">Section</string>
+    <string name="section_a">A</string>
+    <string name="section_b">B</string>
+    <string name="section_cool">Cool</string>
+    <string name="cancel">Cancel</string>
+    <string name="counter_default">1</string>
 </resources>

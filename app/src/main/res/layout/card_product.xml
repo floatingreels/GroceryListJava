@@ -18,7 +18,7 @@
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/tv_product_name"
+            android:id="@+id/tv_card_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -30,18 +30,16 @@
             tools:text="Product name" />
 
         <TextView
-            android:id="@+id/tv_product_qty"
+            android:id="@+id/tv_card_qty"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginLeft="36dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="serif"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toEndOf="@+id/tv_product_name"
+            app:layout_constraintStart_toEndOf="@+id/tv_card_name"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="(x3)" />
 

@@ -1,6 +1,5 @@
 package com.floatingreels.grocerylist.ui.util;
 
-import android.app.AppOpsManager;
 import android.app.Application;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,8 +38,8 @@ public class BSectionAdapter extends RecyclerView.Adapter<BSectionAdapter.BSecti
     class BSectionHolder extends RecyclerView.ViewHolder {
         public BSectionHolder(@NonNull View itemView) {
             super(itemView);
-            TextView nameTV = itemView.findViewById(R.id.tv_product_name);
-            TextView qtyTV = itemView.findViewById(R.id.tv_product_qty);
+            TextView nameTV = itemView.findViewById(R.id.tv_card_name);
+            TextView qtyTV = itemView.findViewById(R.id.tv_card_qty);
         }
     }
 }

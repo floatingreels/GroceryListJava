@@ -12,12 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.floatingreels.grocerylist.R;
 import com.floatingreels.grocerylist.model.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ASectionAdapter extends RecyclerView.Adapter<ASectionAdapter.ASectionHolder> {
 
     private Application mApplication;
-    private List<Product> items;
+    private ArrayList<Product> items;
+
+    public ASectionAdapter(Application application) {
+        this.mApplication = application;
+        items = new ArrayList<>();
+    }
 
     @NonNull
     @Override
@@ -35,11 +41,18 @@ public class ASectionAdapter extends RecyclerView.Adapter<ASectionAdapter.ASecti
     public int getItemCount() {
         return items.size();
     }
+
+    public void setProducts(List<Product> products) {
+        items.clear();
+        items.addAll(items);
+        notifyDataSetChanged();
+    }
+
     class ASectionHolder extends RecyclerView.ViewHolder {
         public ASectionHolder(@NonNull View itemView) {
             super(itemView);
-            TextView nameTV = itemView.findViewById(R.id.tv_product_name);
-            TextView qtyTV = itemView.findViewById(R.id.tv_product_qty);
+            TextView nameTV = itemView.findViewById(R.id.tv_card_name);
+            TextView qtyTV = itemView.findViewById(R.id.tv_card_qty);
         }
     }
 }

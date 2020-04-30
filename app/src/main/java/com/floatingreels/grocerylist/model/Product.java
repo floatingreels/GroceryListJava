@@ -1,33 +1,56 @@
 package com.floatingreels.grocerylist.model;
 
-import com.floatingreels.grocerylist.model.util.ShopSection;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
+import com.floatingreels.grocerylist.model.util.ShopSection;
+@Entity (tableName = "product_table")
 public class Product {
+
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private String name;
+    private int quantity;
     private ShopSection section;
 
-    public Product(String name, ShopSection section) {
+    @Ignore
+    public Product(String name, int quantity, ShopSection section) {
         this.name = name;
+        this.quantity = quantity;
         this.section = section;
     }
 
-    public Product(String name) {
-        this.name = name;
+    public Product() {
     }
 
-    public Product() {
+    public int getId() {
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
     public ShopSection getSection() {
         return section;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public void setSection(ShopSection section) {
