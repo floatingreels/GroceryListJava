@@ -35,6 +35,8 @@ public class ASectionAdapter extends RecyclerView.Adapter<ASectionAdapter.ASecti
     @Override
     public void onBindViewHolder(@NonNull ASectionHolder holder, int position) {
         Product currentProduct = itemsFromSectionA.get(position);
+        holder.nameTV.setText(currentProduct.getName());
+        holder.qtyTV.setText("( x" +currentProduct.getQuantity() + ")" );
     }
 
     @Override
@@ -49,10 +51,13 @@ public class ASectionAdapter extends RecyclerView.Adapter<ASectionAdapter.ASecti
     }
 
     class ASectionHolder extends RecyclerView.ViewHolder {
+
+        final TextView nameTV, qtyTV;
+
         public ASectionHolder(@NonNull View itemView) {
             super(itemView);
-            TextView nameTV = itemView.findViewById(R.id.tv_card_name);
-            TextView qtyTV = itemView.findViewById(R.id.tv_card_qty);
+            nameTV = itemView.findViewById(R.id.tv_card_name);
+            qtyTV = itemView.findViewById(R.id.tv_card_qty);
         }
     }
 }

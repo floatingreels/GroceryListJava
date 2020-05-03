@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ProductViewModel extends AndroidViewModel {
 
-    ProductRepository repository;
+    private ProductRepository repository;
     private LiveData<List<Product>> allProducts, productsFromSectionA, productsFromSectionB, productsFromSectionCool;
 
     public ProductViewModel(@NonNull Application application) {
@@ -42,6 +42,7 @@ public class ProductViewModel extends AndroidViewModel {
     public LiveData<List<Product>> showProductsFromSectionA(){
         return productsFromSectionA;
     }
+
     public LiveData<List<Product>> showProductsFromSectionB(){
         return productsFromSectionB;
     }

@@ -37,6 +37,7 @@ public class CoolSectionAdapter extends RecyclerView.Adapter<CoolSectionAdapter.
     public void onBindViewHolder(@NonNull CoolSectionHolder holder, int position) {
         Product currentProduct = itemsFromSectionCool.get(position);
         holder.nameTV.setText(currentProduct.getName());
+        holder.qtyTV.setText("( x" +currentProduct.getQuantity() + ")" );
     }
 
     @Override
@@ -52,12 +53,12 @@ public class CoolSectionAdapter extends RecyclerView.Adapter<CoolSectionAdapter.
 
     class CoolSectionHolder extends RecyclerView.ViewHolder {
         private TextView nameTV, qtyTV;
-        private Button incrementBtn, decrementBtn;
 
         public CoolSectionHolder(@NonNull View itemView) {
+
             super(itemView);
-            TextView nameTV = itemView.findViewById(R.id.tv_card_name);
-            TextView qtyTV = itemView.findViewById(R.id.tv_card_qty);
+            nameTV = itemView.findViewById(R.id.tv_card_name);
+            qtyTV = itemView.findViewById(R.id.tv_card_qty);
         }
     }
 }

@@ -16,4 +16,5 @@
     <string name="section_cool">Cool</string>
     <string name="cancel">Cancel</string>
     <string name="counter_default">1</string>
+    <string name="product_added" > Product added to list</string>
 </resources>

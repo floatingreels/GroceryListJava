@@ -5,6 +5,9 @@ import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
+import com.floatingreels.grocerylist.model.database.ProductDAO;
+import com.floatingreels.grocerylist.model.database.ProductDabase;
+
 import java.util.List;
 
 public class ProductRepository {

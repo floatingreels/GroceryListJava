@@ -1,4 +1,4 @@
-package com.floatingreels.grocerylist.model;
+package com.floatingreels.grocerylist.model.database;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -6,6 +6,8 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
+import com.floatingreels.grocerylist.model.Product;
 
 import java.util.List;
 

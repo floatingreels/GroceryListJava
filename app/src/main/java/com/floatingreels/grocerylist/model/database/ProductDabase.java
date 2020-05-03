@@ -1,12 +1,17 @@
-package com.floatingreels.grocerylist.model;
+package com.floatingreels.grocerylist.model.database;
 
 import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
-@Database(entities = Product.class, version = 1)
+import com.floatingreels.grocerylist.model.Product;
+import com.floatingreels.grocerylist.model.util.ShopSectionConverter;
+
+@Database(entities = Product.class, version = 1, exportSchema = false)
+@TypeConverters(ShopSectionConverter.class)
 public abstract class ProductDabase extends RoomDatabase {
     private static ProductDabase instance;
 
