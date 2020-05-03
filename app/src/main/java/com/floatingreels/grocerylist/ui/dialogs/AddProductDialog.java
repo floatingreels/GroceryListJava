@@ -59,7 +59,7 @@ public class AddProductDialog extends AppCompatDialogFragment {
                         productViewModel = new ViewModelProvider(getActivity()).get(ProductViewModel.class);
                         productViewModel.insert(newProduct);
 
-                        Toast.makeText(getActivity(), "New product", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), R.string.product_added, Toast.LENGTH_SHORT).show();
                     }
                 });
 
