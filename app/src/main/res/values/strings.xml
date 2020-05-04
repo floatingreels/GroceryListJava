@@ -1,7 +1,5 @@
 <resources>
-    <string name="app_name">GroceryList</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">GrApp</string>
     <string name="product_name">Product name</string>
     <string name="product_decrement">-</string>
     <string name="product_increment">+</string>
@@ -19,5 +17,5 @@
     <string name="product_added" > Product added to list</string>
     <string name="product_removed">Product removed from list</string>
     <string name="product_removed_all">All products removed from list</string>
-    <string name="product_remove_all">Remove all notes</string>
+    <string name="product_remove_all">Remove all products</string>
 </resources>
