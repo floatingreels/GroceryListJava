@@ -20,13 +20,16 @@
 
         <TextView
             android:id="@+id/tv_card_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:fontFamily="serif"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/primaryTextColor"
             android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tv_card_qty"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Product name" />
@@ -37,11 +40,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:layout_marginTop="12dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="1dp"
             android:fontFamily="serif"
             android:paddingLeft="12dp"
             android:paddingRight="12dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toEndOf="@+id/tv_card_name"
+            app:layout_constraintEnd_toStartOf="@+id/chk_card_item"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="(x3)" />
 
