@@ -12,12 +12,11 @@ import java.util.List;
 
 public class ProductRepository {
     private ProductDAO productDAO;
-    private LiveData<List<Product>> allProducts, productsFromSectionA, productsFromSectionB, productsFromSectionCool;
+    private LiveData<List<Product>> productsFromSectionA, productsFromSectionB, productsFromSectionCool;
 
     public ProductRepository (Application application){
         ProductDabase database = ProductDabase.getInstance(application);
         productDAO = database.productDAO();
-        allProducts = productDAO.getAllProducts();
         productsFromSectionA = productDAO.showProductsFromSectionA();
         productsFromSectionB = productDAO.showProductsFromSectionB();
         productsFromSectionCool = productDAO.showProductsFromSectionCool();
@@ -33,10 +32,6 @@ public class ProductRepository {
 
     public void deleteAll(){
         new DeleteAllNotesAsyncTask(productDAO).execute();
-    }
-
-    public LiveData<List<Product>> getAllProducts(){
-        return allProducts;
     }
 
     public LiveData<List<Product>> showProductsFromSectionA(){

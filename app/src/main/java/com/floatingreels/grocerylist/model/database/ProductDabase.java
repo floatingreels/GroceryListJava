@@ -8,10 +8,11 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
 import com.floatingreels.grocerylist.model.Product;
+import com.floatingreels.grocerylist.model.util.CheckedConverter;
 import com.floatingreels.grocerylist.model.util.ShopSectionConverter;
 
 @Database(entities = Product.class, version = 1, exportSchema = false)
-@TypeConverters(ShopSectionConverter.class)
+@TypeConverters({ShopSectionConverter.class, CheckedConverter.class})
 public abstract class ProductDabase extends RoomDatabase {
     private static ProductDabase instance;
 

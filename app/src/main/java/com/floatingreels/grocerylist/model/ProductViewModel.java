@@ -12,12 +12,11 @@ import java.util.List;
 public class ProductViewModel extends AndroidViewModel {
 
     private ProductRepository repository;
-    private LiveData<List<Product>> allProducts, productsFromSectionA, productsFromSectionB, productsFromSectionCool;
+    private LiveData<List<Product>> productsFromSectionA, productsFromSectionB, productsFromSectionCool;
 
     public ProductViewModel(@NonNull Application application) {
         super(application);
         repository = new ProductRepository(application);
-        allProducts = repository.getAllProducts();
         productsFromSectionA = repository.showProductsFromSectionA();
         productsFromSectionB = repository.showProductsFromSectionB();
         productsFromSectionCool = repository.showProductsFromSectionCool();
@@ -33,10 +32,6 @@ public class ProductViewModel extends AndroidViewModel {
 
     public void deleteAll(){
         repository.deleteAll();
-    }
-
-    public LiveData<List<Product>> getAllProducts(){
-        return allProducts;
     }
 
     public LiveData<List<Product>> showProductsFromSectionA(){

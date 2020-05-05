@@ -1,7 +1,5 @@
 package com.floatingreels.grocerylist.model;
 
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -15,12 +13,14 @@ public class Product {
     private String name;
     private int quantity;
     private ShopSection section;
+    private boolean checked;
 
     @Ignore
     public Product(String name, int quantity, ShopSection section) {
         this.name = name;
         this.quantity = quantity;
         this.section = section;
+        checked = false;
     }
 
     public Product() {
@@ -42,6 +42,10 @@ public class Product {
         return section;
     }
 
+    public boolean isChecked() {
+        return checked;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -58,5 +62,7 @@ public class Product {
         this.section = section;
     }
 
-
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
 }

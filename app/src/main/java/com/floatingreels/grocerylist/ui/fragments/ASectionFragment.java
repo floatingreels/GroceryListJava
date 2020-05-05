@@ -65,19 +65,6 @@ public class ASectionFragment extends Fragment {
             }
         });
 
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-            @Override
-            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                return false;
-            }
-
-            @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                productViewModel.delete(aSectionAdapter.getProductAtPosition(viewHolder.getAdapterPosition()));
-                Toast.makeText(mContext, R.string.product_removed,Toast.LENGTH_SHORT).show();
-            }
-        }).attachToRecyclerView(recyclerView);
-
         return rootView;
     }
 }

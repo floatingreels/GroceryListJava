@@ -13,9 +13,12 @@
     <string name="section_b">B</string>
     <string name="section_cool">Cool</string>
     <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
     <string name="counter_default">1</string>
     <string name="product_added" > Product added to list</string>
     <string name="product_removed">Product removed from list</string>
     <string name="product_removed_all">All products removed from list</string>
     <string name="product_remove_all">Remove all products</string>
+    <string name="product_remove_item">Delete item</string>
+    <string name="confirm_delete">Would you like to remove this product from the list?</string>
 </resources>

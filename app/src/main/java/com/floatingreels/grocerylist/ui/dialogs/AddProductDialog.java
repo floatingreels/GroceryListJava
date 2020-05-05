@@ -28,7 +28,6 @@ public class AddProductDialog extends AppCompatDialogFragment {
     private TextView counterTV;
     private Button incrementCounterBtn, decrementCounterBtn;
     private RadioGroup sectionRG;
-    private RadioButton sectionSelectedRBtn;
     private EditText nameET;
     private int quantity = 1;
     private ProductViewModel productViewModel;
@@ -39,6 +38,7 @@ public class AddProductDialog extends AppCompatDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         final View dialogView = inflater.inflate(R.layout.dialog_add_product, null,false);
+
         builder.setView(dialogView)
                 .setTitle(R.string.product_add_title)
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {

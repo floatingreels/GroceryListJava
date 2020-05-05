@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
@@ -12,13 +11,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.floatingreels.grocerylist.R;
-import com.floatingreels.grocerylist.model.Product;
 import com.floatingreels.grocerylist.model.ProductViewModel;
 import com.floatingreels.grocerylist.model.util.ProductViewModelFactory;
 import com.floatingreels.grocerylist.ui.dialogs.AddProductDialog;
@@ -51,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         addProductDialogFAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDialog();
+                openAddProductDialog();
             }
         });
 
@@ -59,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         productViewModel = new ViewModelProvider(this, factory).get(ProductViewModel.class);
     }
 
-    private void openDialog() {
+        private void openAddProductDialog() {
         AddProductDialog addProductDialog = new AddProductDialog();
         addProductDialog.show(getSupportFragmentManager(), "Add Product");
     }
