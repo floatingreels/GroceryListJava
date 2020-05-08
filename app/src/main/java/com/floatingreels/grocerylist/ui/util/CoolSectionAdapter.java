@@ -59,10 +59,12 @@ public class CoolSectionAdapter extends RecyclerView.Adapter<CoolSectionAdapter.
                     currentProduct.setChecked(true);
                     holder.nameTV.setTextColor(CARD_TEXT_COLOUR_CHECKED);
                     holder.qtyTV.setTextColor(CARD_TEXT_COLOUR_CHECKED);
+                    isTicked = false;
                 } else {
                     currentProduct.setChecked(false);
                     holder.nameTV.setTextColor(CARD_TEXT_COLOUR_UNCHECKED);
                     holder.qtyTV.setTextColor(CARD_TEXT_COLOUR_UNCHECKED);
+                    isTicked = true;
                 }
                 productViewModel.update(currentProduct);
             }

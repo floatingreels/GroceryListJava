@@ -29,6 +29,7 @@ public class ASectionAdapter extends RecyclerView.Adapter<ASectionAdapter.ASecti
     private Application mApplication;
     private ArrayList<Product> itemsFromSectionA;
     private List<CardView>cardViewList = new ArrayList<>();
+    private ProductViewModel productViewModel = new ProductViewModel(mApplication);
 
     public ASectionAdapter(Application application) {
         this.mApplication = application;
@@ -45,7 +46,9 @@ public class ASectionAdapter extends RecyclerView.Adapter<ASectionAdapter.ASecti
     @Override
     public void onBindViewHolder(@NonNull final ASectionHolder holder, int position) {
         final Product currentProduct = itemsFromSectionA.get(position);
-        cardViewList.add(holder.cardView);
+        CardView currentCardView = holder.cardView;
+        cardViewList.add(currentCardView);
+
         holder.nameTV.setText(currentProduct.getName());
         holder.qtyTV.setText("( x" +currentProduct.getQuantity() + ")" );
         holder.isCheckedCB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
