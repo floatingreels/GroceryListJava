@@ -27,6 +27,7 @@ public class BSectionAdapter extends RecyclerView.Adapter<BSectionAdapter.BSecti
     private List<Product> itemsFromSectionB;
     private List<CardView>cardViewList = new ArrayList<>();
     private Application mApplication;
+    private ProductViewModel productViewModel = new ProductViewModel(mApplication);
 
     public BSectionAdapter(Application application) {
         this.mApplication = application;
@@ -43,7 +44,8 @@ public class BSectionAdapter extends RecyclerView.Adapter<BSectionAdapter.BSecti
     @Override
     public void onBindViewHolder(@NonNull final BSectionHolder holder, int position) {
         final Product currentProduct = itemsFromSectionB.get(position);
-        cardViewList.add(holder.cardView);
+        CardView currentCardView = holder.cardView;
+        cardViewList.add(currentCardView);
 
         holder.nameTV.setText(currentProduct.getName());
         holder.qtyTV.setText("( x" +currentProduct.getQuantity() + ")" );
@@ -62,6 +64,30 @@ public class BSectionAdapter extends RecyclerView.Adapter<BSectionAdapter.BSecti
                     holder.nameTV.setTextColor(CARD_TEXT_COLOUR_UNCHECKED);
                     holder.qtyTV.setTextColor(CARD_TEXT_COLOUR_UNCHECKED);
                 }
+            }
+        });
+
+        currentCardView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                new AlertDialog.Builder(v.getContext())
+                        .setTitle(R.string.product_remove_item)
+                        .setMessage(R.string.confirm_delete)
+                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        })
+                        .setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                productViewModel.delete(currentProduct);
+                                Toast.makeText(mApplication, R.string.product_removed, Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .create()
+                        .show();
+                return false;
             }
         });
     }
@@ -104,6 +130,7 @@ public class BSectionAdapter extends RecyclerView.Adapter<BSectionAdapter.BSecti
                         })
                         .create()
                         .show();
+
                 return false;
             }
         };
