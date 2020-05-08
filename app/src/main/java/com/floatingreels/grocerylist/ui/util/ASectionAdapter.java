@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.floatingreels.grocerylist.R;
@@ -31,7 +33,6 @@ public class ASectionAdapter extends RecyclerView.Adapter<ASectionAdapter.ASecti
     public ASectionAdapter(Application application) {
         this.mApplication = application;
         itemsFromSectionA = new ArrayList<>();
-
     }
 
     @NonNull
@@ -49,11 +50,11 @@ public class ASectionAdapter extends RecyclerView.Adapter<ASectionAdapter.ASecti
         holder.qtyTV.setText("( x" +currentProduct.getQuantity() + ")" );
         holder.isCheckedCB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isTicked) {
                 int CARD_TEXT_COLOUR_UNCHECKED = mApplication.getResources().getColor(R.color.primaryTextColor);
                 int CARD_TEXT_COLOUR_CHECKED = mApplication.getResources().getColor(R.color.primaryColor);
 
-                if (buttonView.isChecked()) {
+                if (isTicked) {
                     currentProduct.setChecked(true);
                     holder.nameTV.setTextColor(CARD_TEXT_COLOUR_CHECKED);
                     holder.qtyTV.setTextColor(CARD_TEXT_COLOUR_CHECKED);

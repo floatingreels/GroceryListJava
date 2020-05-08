@@ -26,6 +26,10 @@ public class ProductRepository {
         new InsertNoteAsyncTask(productDAO).execute(product);
     }
 
+    public void update(Product product){
+        new UpdateNoteAsyncTask(productDAO).execute(product);
+    }
+
     public void delete(Product product){
         new DeleteNoteAsyncTask(productDAO).execute(product);
     }
@@ -58,6 +62,21 @@ public class ProductRepository {
         @Override
         protected Void doInBackground(Product... products) {
             productDAO.insert(products[0]);
+            return null;
+        }
+    }
+
+    private static class UpdateNoteAsyncTask extends AsyncTask<Product, Void, Void> {
+
+        private ProductDAO productDAO;
+
+        private UpdateNoteAsyncTask(ProductDAO productDAO){
+            this.productDAO = productDAO;
+        }
+
+        @Override
+        protected Void doInBackground(Product... products) {
+            productDAO.update(products[0]);
             return null;
         }
     }

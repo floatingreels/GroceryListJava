@@ -25,6 +25,7 @@ import java.util.List;
 public class CoolSectionAdapter extends RecyclerView.Adapter<CoolSectionAdapter.CoolSectionHolder> {
 
     private Application mApplication;
+    private ProductViewModel productViewModel = new ProductViewModel(mApplication);
     private List<Product> itemsFromSectionCool;
     private List<CardView>cardViewList = new ArrayList<>();
 
@@ -43,17 +44,18 @@ public class CoolSectionAdapter extends RecyclerView.Adapter<CoolSectionAdapter.
     @Override
     public void onBindViewHolder(@NonNull final CoolSectionHolder holder, int position) {
         final Product currentProduct = itemsFromSectionCool.get(position);
-        cardViewList.add(holder.cardView);
+        CardView currentCardView = holder.cardView;
+        cardViewList.add(currentCardView);
 
         holder.nameTV.setText(currentProduct.getName());
         holder.qtyTV.setText("( x" +currentProduct.getQuantity() + ")" );
         holder.isCheckedCB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isTicked) {
                 int CARD_TEXT_COLOUR_UNCHECKED = mApplication.getResources().getColor(R.color.primaryTextColor);
                 int CARD_TEXT_COLOUR_CHECKED = mApplication.getResources().getColor(R.color.primaryColor);
 
-                if (buttonView.isChecked()) {
+                if (isTicked) {
                     currentProduct.setChecked(true);
                     holder.nameTV.setTextColor(CARD_TEXT_COLOUR_CHECKED);
                     holder.qtyTV.setTextColor(CARD_TEXT_COLOUR_CHECKED);
@@ -62,6 +64,30 @@ public class CoolSectionAdapter extends RecyclerView.Adapter<CoolSectionAdapter.
                     holder.nameTV.setTextColor(CARD_TEXT_COLOUR_UNCHECKED);
                     holder.qtyTV.setTextColor(CARD_TEXT_COLOUR_UNCHECKED);
                 }
+                productViewModel.update(currentProduct);
+            }
+        });
+        currentCardView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                new AlertDialog.Builder(v.getContext())
+                        .setTitle(R.string.product_remove_item)
+                        .setMessage(R.string.confirm_delete)
+                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        })
+                        .setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                productViewModel.delete(currentProduct);
+                                Toast.makeText(mApplication, R.string.product_removed, Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .create()
+                        .show();
+                return false;
             }
         });
     }
@@ -82,31 +108,31 @@ public class CoolSectionAdapter extends RecyclerView.Adapter<CoolSectionAdapter.
         private TextView nameTV, qtyTV;
         CardView cardView;
         final CheckBox isCheckedCB;
-        private final View.OnLongClickListener removeDialogListener = new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                new AlertDialog.Builder(v.getContext())
-                        .setTitle(R.string.product_remove_item)
-                        .setMessage(R.string.confirm_delete)
-                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                            }
-                        })
-                        .setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                int position = getAdapterPosition();
-                                ProductViewModel productViewModel = new ProductViewModel(mApplication);
-                                productViewModel.delete(itemsFromSectionCool.get(position));
-                                Toast.makeText(mApplication, R.string.product_removed, Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .create()
-                        .show();
-                return false;
-            }
-        };
+
+//        private final View.OnLongClickListener removeDialogListener = new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View v) {
+//                new AlertDialog.Builder(v.getContext())
+//                        .setTitle(R.string.product_remove_item)
+//                        .setMessage(R.string.confirm_delete)
+//                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                            }
+//                        })
+//                        .setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                int position = getAdapterPosition();
+//                                productViewModel.delete(itemsFromSectionCool.get(position));
+//                                Toast.makeText(mApplication, R.string.product_removed, Toast.LENGTH_SHORT).show();
+//                            }
+//                        })
+//                        .create()
+//                        .show();
+//                return false;
+//            }
+//        };
 
         public CoolSectionHolder(@NonNull View itemView) {
 
@@ -115,7 +141,8 @@ public class CoolSectionAdapter extends RecyclerView.Adapter<CoolSectionAdapter.
             qtyTV = itemView.findViewById(R.id.tv_card_qty);
             isCheckedCB = itemView.findViewById(R.id.chk_card_item);
             cardView = itemView.findViewById(R.id.cv_product);
-            cardView.setOnLongClickListener(removeDialogListener);
+//            cardView.setOnLongClickListener(removeDialogListener);
+
         }
     }
 }

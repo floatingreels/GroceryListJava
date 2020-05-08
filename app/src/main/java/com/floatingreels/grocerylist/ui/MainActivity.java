@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         ProductViewModelFactory factory = new ProductViewModelFactory(getApplication());
         productViewModel = new ViewModelProvider(this, factory).get(ProductViewModel.class);
+
     }
 
         private void openAddProductDialog() {

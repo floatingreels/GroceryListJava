@@ -49,11 +49,11 @@ public class BSectionAdapter extends RecyclerView.Adapter<BSectionAdapter.BSecti
         holder.qtyTV.setText("( x" +currentProduct.getQuantity() + ")" );
         holder.isCheckedCB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isTicked) {
                 int CARD_TEXT_COLOUR_UNCHECKED = mApplication.getResources().getColor(R.color.primaryTextColor);
                 int CARD_TEXT_COLOUR_CHECKED = mApplication.getResources().getColor(R.color.primaryColor);
 
-                if (buttonView.isChecked()) {
+                if (isTicked) {
                     currentProduct.setChecked(true);
                     holder.nameTV.setTextColor(CARD_TEXT_COLOUR_CHECKED);
                     holder.qtyTV.setTextColor(CARD_TEXT_COLOUR_CHECKED);
