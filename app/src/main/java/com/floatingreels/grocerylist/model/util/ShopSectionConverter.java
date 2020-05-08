@@ -4,13 +4,13 @@ import androidx.room.TypeConverter;
 
 public class ShopSectionConverter {
     @TypeConverter
-    public static ShopSection stringToMuralType(String typeAsString) {
-        ShopSection typeAsEnum = ShopSection.valueOf(typeAsString);
-        return typeAsEnum;
+    public static ShopSection stringToShopSection(String sectionAsString) {
+        ShopSection sectionAsEnum = ShopSection.valueOf(sectionAsString);
+        return sectionAsEnum;
     }
     @TypeConverter
-    public static String muralTypeToString(ShopSection typeAsEnum) {
-        String typeAsString = typeAsEnum.name();
-        return typeAsString;
+    public static String shopSectionTypeToString(ShopSection sectionAsEnum) {
+        String sectionAsString = sectionAsEnum.name();
+        return sectionAsString;
     }
 }
