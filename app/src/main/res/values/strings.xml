@@ -5,6 +5,7 @@
     <string name="product_increment">+</string>
     <string name="product_add_title">Add new product</string>
     <string name="product_add_btn">Add</string>
+    <string name="product_add_specify">Please specify title, amount and shop section when adding product</string>
     <string name="fragment_section_b">B Section</string>
     <string name="fragment_section_a">A Section</string>
     <string name="fragment_section_cool">Cool Section</string>
@@ -21,4 +22,5 @@
     <string name="product_remove_all">Remove all products</string>
     <string name="product_remove_item">Delete item</string>
     <string name="confirm_delete">Would you like to remove this product from the list?</string>
+    <string name="product_in_cart">Product added top cart</string>
 </resources>

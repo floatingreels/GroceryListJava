@@ -13,14 +13,14 @@ public class Product {
     private String name;
     private int quantity;
     private ShopSection section;
-    private boolean checked;
+    private boolean ticked;
 
     @Ignore
     public Product(String name, int quantity, ShopSection section) {
         this.name = name;
         this.quantity = quantity;
         this.section = section;
-        checked = false;
+        ticked = false;
     }
 
     public Product() {
@@ -42,8 +42,8 @@ public class Product {
         return section;
     }
 
-    public boolean isChecked() {
-        return checked;
+    public boolean isTicked() {
+        return ticked;
     }
 
     public void setId(int id) {
@@ -62,7 +62,7 @@ public class Product {
         this.section = section;
     }
 
-    public void setChecked(boolean checked) {
-        this.checked = checked;
+    public void setTicked(boolean ticked) {
+        this.ticked = ticked;
     }
 }

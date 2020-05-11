@@ -25,12 +25,12 @@ public interface ProductDAO {
     @Query("DELETE FROM product_table")
     void deleteAll();
 
-    @Query("SELECT * FROM product_table WHERE section = 'SECTION_A' ORDER BY checked ASC")
+    @Query("SELECT * FROM product_table WHERE section = 'SECTION_A' ORDER BY ticked ASC")
     LiveData<List<Product>> showProductsFromSectionA();
 
-    @Query("SELECT * FROM product_table WHERE section = 'SECTION_B' ORDER BY checked ASC")
+    @Query("SELECT * FROM product_table WHERE section = 'SECTION_B' ORDER BY ticked ASC")
     LiveData<List<Product>> showProductsFromSectionB();
 
-    @Query("SELECT * FROM product_table WHERE section = 'SECTION_COOL' ORDER BY checked ASC")
+    @Query("SELECT * FROM product_table WHERE section = 'SECTION_COOL' ORDER BY ticked ASC")
     LiveData<List<Product>> showProductsFromSectionCool();
 }

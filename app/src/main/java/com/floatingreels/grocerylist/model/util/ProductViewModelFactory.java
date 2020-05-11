@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.floatingreels.grocerylist.model.ProductRepository;
 import com.floatingreels.grocerylist.model.ProductViewModel;
 
 public class ProductViewModelFactory implements ViewModelProvider.Factory {

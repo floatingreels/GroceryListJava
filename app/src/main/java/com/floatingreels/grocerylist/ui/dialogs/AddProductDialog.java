@@ -50,7 +50,8 @@ public class AddProductDialog extends AppCompatDialogFragment {
                 .setPositiveButton(R.string.product_add_btn, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (nameET.getText().toString().trim().length() == 0 || quantity < 1){
+                        if (sectionRG.getCheckedRadioButtonId() == -1 || nameET.getText().toString().trim().length() == 0 || quantity < 1){
+                            Toast.makeText(getActivity(), R.string.product_add_specify, Toast.LENGTH_SHORT).show();
                             return;
                         }
                         Product newProduct = new Product(nameET.getText().toString(),
