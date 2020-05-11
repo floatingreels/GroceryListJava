@@ -61,7 +61,7 @@
             android:contentDescription="@string/product_in_cart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_add_shopping_cart"
+            app:srcCompat="@drawable/ic_check_box_outline_blank"
             tools:srcCompat="@drawable/ic_check_box_outline_blank" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
