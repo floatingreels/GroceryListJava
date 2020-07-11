@@ -1,11 +1,13 @@
 package com.floatingreels.grocerylist.ui;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -25,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
     private FloatingActionButton addProductDialogFAB;
     private ProductViewModel productViewModel;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,8 +72,23 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_delete_all:
-                productViewModel.deleteAll();
-                Toast.makeText(this, R.string.product_removed_all, Toast.LENGTH_SHORT).show();
+                new AlertDialog.Builder(this)
+                        .setTitle(R.string.product_remove_all_items)
+                        .setMessage(R.string.confirm_delete_all)
+                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        })
+                        .setPositiveButton(R.string.delete_all, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                productViewModel.deleteAll();
+                                Toast.makeText(MainActivity.this, R.string.product_removed_all, Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .create()
+                        .show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

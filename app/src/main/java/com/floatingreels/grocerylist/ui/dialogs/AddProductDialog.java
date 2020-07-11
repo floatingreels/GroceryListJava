@@ -86,7 +86,7 @@ public class AddProductDialog extends AppCompatDialogFragment {
         return builder.create();
     }
 
-    public ShopSection checkSectionSelected(View view){
+    private ShopSection checkSectionSelected(View view){
         int radioId = sectionRG.getCheckedRadioButtonId();
         ShopSection sectionSelected = null;
         switch (radioId){
@@ -108,6 +108,5 @@ public class AddProductDialog extends AppCompatDialogFragment {
         quantity++;
         counterTV.setText(String.valueOf(quantity));
     }
-
 }
 

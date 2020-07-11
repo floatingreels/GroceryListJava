@@ -125,8 +125,6 @@ public class ASectionAdapter extends RecyclerView.Adapter<ASectionAdapter.ASecti
         final ImageView addToCartIV;
         CardView cardView;
 
-
-
         public ASectionHolder(@NonNull View itemView) {
             super(itemView);
             nameTV = itemView.findViewById(R.id.tv_card_name);

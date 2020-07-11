@@ -39,7 +39,7 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
         if (position == 0) {
             title = "Section A";
         } else if (position == 1) {
-            title = "Cooler";
+            title = "Section Cool";
         } else if (position == 2){
             title = "Section B";
         }

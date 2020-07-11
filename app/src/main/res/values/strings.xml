@@ -15,12 +15,15 @@
     <string name="section_cool">Cool</string>
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
+    <string name="delete_all">Delete all</string>
     <string name="counter_default">1</string>
-    <string name="product_added" > Product added to list</string>
+    <string name="product_added"> Product added to list</string>
     <string name="product_removed">Product removed from list</string>
     <string name="product_removed_all">All products removed from list</string>
     <string name="product_remove_all">Remove all products</string>
-    <string name="product_remove_item">Delete item</string>
+    <string name="product_remove_item">Delete product</string>
+    <string name="product_remove_all_items">Delete all products</string>
     <string name="confirm_delete">Would you like to remove this product from the list?</string>
+    <string name="confirm_delete_all">Would you like to remove all products from the list?</string>
     <string name="product_in_cart">Product added top cart</string>
 </resources>
